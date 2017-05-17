@@ -22,7 +22,7 @@ The C++ code is about 50 lines in [write.cpp](https://github.com/patwie/tf_zmq/b
 install dependencies
 ---------------------
 
-You basically need two dependencies (see [.travis.yml](https://github.com/patwie/tf_zmq/blob/master/.travis.yml).
+You basically need two dependencies (see [.travis.yml](https://github.com/patwie/tf_zmq/blob/master/.travis.yml)).
 
 ```bash
 # compile ZMQ
@@ -59,7 +59,9 @@ cd tf_zmq
 related projects:
 -------------
 
-There have been 2 attemps for solving this problem (at least I know two attemps):
-- [Tensorpack](https://github.com/ppwwyyxx/tensorpack) this requires a python script to send data as it is based on TensorProto (protobuf)
-- [pull-request TF](https://github.com/tensorflow/tensorflow/pull/8728) here you need to specify the shape dimensions in advance
+There have been 2 attemps for solving this problem:
+- [Tensorpack](https://github.com/ppwwyyxx/tensorpack) this solution requires a python script to send data as it is based on TensorProto protobuf (currently not exported by TF)
+- [pull-request TF](https://github.com/tensorflow/tensorflow/pull/8728) here you need to specify the shape dimensions in advance also based on TensorProto
+
+You probably do not want to link a game engine with the TF core.
 

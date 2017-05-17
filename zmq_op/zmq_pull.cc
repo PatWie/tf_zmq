@@ -82,7 +82,6 @@ class ZMQPull: public OpKernel {
       if(tensors[i].type_ == 0){
         // case: type tf.int32
         auto flat = output->flat<int>();
-        int* data = (int*) tensors[i].data_.ptr;
         std::copy_n((int*) tensors[i].data_.ptr,
                     tensors[i].size(),
                     flat.data());
@@ -90,15 +89,13 @@ class ZMQPull: public OpKernel {
       else if(tensors[i].type_ == 1){
         // case: type tf.float32
         auto flat = output->flat<float>();
-        float* data = (float*) tensors[i].data_.ptr;
         std::copy_n((float*) tensors[i].data_.ptr,
                     tensors[i].size(),
                     flat.data());
       }
       else if(tensors[i].type_ == 2){
-        // case: type tf.double
+        // case: type tf.float64 (double)
         auto flat = output->flat<double>();
-        double* data = (double*) tensors[i].data_.ptr;
         std::copy_n((double*) tensors[i].data_.ptr,
                     tensors[i].size(),
                     flat.data());
