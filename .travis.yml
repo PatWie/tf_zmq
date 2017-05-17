@@ -1,0 +1,42 @@
+sudo: false
+dist: trusty
+language: python
+
+cache:
+  pip: true
+  apt: true
+
+matrix:
+  fast_finish: true
+  include:
+  - os: linux
+    python: 2.7
+    env: TF_VERSION=1.1.0 TF_TYPE=release
+  - os: linux
+    python: 3.5
+    env: TF_VERSION=1.1.0 TF_TYPE=release
+  - os: linux
+    python: 2.7
+    env: TF_VERSION=1.head TF_TYPE=nightly
+  - os: linux
+    python: 3.5
+    env: TF_VERSION=1.head TF_TYPE=nightly
+  allow_failures:
+  - env: TF_VERSION=1.head TF_TYPE=nightly
+
+install:
+- pip install -U pip  # the pip version on travis is too old
+- pip install flake8  # the pip version on travis is too old
+- ./.install_tf.sh  # use my script provided for tensorpack
+
+before_script:
+- flake8 --version
+- python -c "import tensorflow as tf; print('TensorFlow '+ tf.__version__)"
+
+script:
+- flake8 .
+- ./.install_tf.sh
+- ./.install_dependencies.sh
+- export PKG_CONFIG_PATH=$HOME/libs/libzmq/dist/lib/pkgconfig/:$PKG_CONFIG_PATH
+- export PKG_CONFIG_PATH=$HOME/libs/msgpack-c/dist/lib/pkgconfig/:$PKG_CONFIG_PATH
+- ./compile.sh
