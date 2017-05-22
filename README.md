@@ -16,7 +16,11 @@ with tf.Session() as sess:
     print(sess.run([image, label]))
 ```
 
-The C++ code is about 45 lines in [write.cpp](https://github.com/patwie/tf_zmq/blob/master/write.cpp). It uses [ZMQ](http://zeromq.org/) for a easy distributed messaging and [msgPack](http://msgpack.org/) for a fast serialization. You are free to change the shape of each tensor over time. If you want to use the send tensors in native python without TF dependencies you can use [read_py.py](https://github.com/patwie/tf_zmq/blob/master/read_py.py)
+The C++ code is about 45 lines in [write.cpp](https://github.com/patwie/tf_zmq/blob/master/write.cpp). It uses [ZMQ](http://zeromq.org/) for a easy distributed messaging and [msgPack](http://msgpack.org/) for a fast serialization. You are free to change the shape of each tensor over time. If you want to use the send tensors in native python without TF dependencies you can use [read_py.py](https://github.com/patwie/tf_zmq/blob/master/read_py.py). This library supports all combinations:
+- py (write.py) --> TF (read_tf.py)
+- py (write.cpp) --> TF (read_tf.py)
+- py (write.py) --> native python (read_py.py)
+- py (write.cpp) --> native python (read_py.py)
 
 
 install dependencies

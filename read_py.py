@@ -33,6 +33,7 @@ def unpack_tensor_msg(data):
             # double (float64)
             fmt = 'd' * np.prod(shape)
             typ = np.float64
+
         arr = struct.unpack(fmt, dp[2])
         arr = np.reshape(np.asarray(arr, dtype=typ), shape)
         rsl.append(arr)
@@ -46,7 +47,7 @@ try:
     socket.bind('ipc:///tmp/ipc-socket-0')
     while True:
         data = socket.recv(copy=False).bytes
-        print unpack_tensor_msg(data)
+        print(unpack_tensor_msg(data))
         time.sleep(1)
 
 finally:
