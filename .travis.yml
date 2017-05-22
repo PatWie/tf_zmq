@@ -35,8 +35,8 @@ before_script:
 
 script:
 - flake8 .
-- ./.install_tf.sh
-- ./.install_dependencies.sh
+- .travis/.install_tf.sh
+- .travis/.install_dependencies.sh
 - export PKG_CONFIG_PATH=$HOME/libs/libzmq/dist/lib/pkgconfig/:$PKG_CONFIG_PATH
 - export PKG_CONFIG_PATH=$HOME/libs/msgpack-c/dist/lib/pkgconfig/:$PKG_CONFIG_PATH
 - .travis/compile.sh 
