@@ -5,7 +5,7 @@ ZeroMQ for TensorFlow
 
 This is about directly sending data from C++ to Tensorflow. Unfortunately, generating data within a c++ application for TF is not envisaged and communicated as not request for the TF core. Even the discussion about the redesign of the input pipeline seems to converge to put everything into the graph. 
 
-This is hilarious as most solutions for interesting problems are not based on a mindless iteration over set of images. This small library helps to sending data directly from your favourite C++ application (game-engine, renderer, emulator, [put here what you want]) to TensorFlow. Reading data is as simple as:
+This is hilarious as most solutions for interesting problems are not based on a mindless iteration over set of images. This small library helps to sending data directly from your favourite C++ application (game-engine, renderer, emulator, [put here what you want]) to TensorFlow. Reading data is as simple as (see [read_tf.py](https://github.com/patwie/tf_zmq/blob/master/read_tf.py)):
 
 ```python
 import tensorflow as tf
@@ -16,7 +16,7 @@ with tf.Session() as sess:
     print(sess.run([image, label]))
 ```
 
-The C++ code is about 50 lines in [write.cpp](https://github.com/patwie/tf_zmq/blob/master/write.cpp). It uses [ZMQ](http://zeromq.org/) for a easy distributed messaging and [msgPack](http://msgpack.org/) for a fast serialization. You are free to change the shape of each tensor over time.
+The C++ code is about 45 lines in [write.cpp](https://github.com/patwie/tf_zmq/blob/master/write.cpp). It uses [ZMQ](http://zeromq.org/) for a easy distributed messaging and [msgPack](http://msgpack.org/) for a fast serialization. You are free to change the shape of each tensor over time. If you want to use the send tensors in native python without TF dependencies you can use [read_py.py](https://github.com/patwie/tf_zmq/blob/master/read_py.py)
 
 
 install dependencies
