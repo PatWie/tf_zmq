@@ -1,3 +1,8 @@
+#!/usr/bin/env python
+# -*- coding: UTF-8 -*-
+# File: write.py
+# Author: Patrick Wieschollek <mail@patwie.com>
+
 import zmq
 import numpy as np  # noqa
 import tensor_msg

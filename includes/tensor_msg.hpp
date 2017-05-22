@@ -1,3 +1,5 @@
+// Author: Patrick Wieschollek <mail@patwie.com>
+
 #ifndef tensor_msg_HPP
 #define tensor_msg_HPP
 

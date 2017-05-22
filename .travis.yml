@@ -27,7 +27,7 @@ matrix:
 install:
 - pip install -U pip  # the pip version on travis is too old
 - pip install flake8  # the pip version on travis is too old
-- ./.install_tf.sh  # use my script provided for tensorpack
+- .travis/.install_tf.sh  # use my script provided for tensorpack
 
 before_script:
 - flake8 --version
@@ -39,4 +39,4 @@ script:
 - ./.install_dependencies.sh
 - export PKG_CONFIG_PATH=$HOME/libs/libzmq/dist/lib/pkgconfig/:$PKG_CONFIG_PATH
 - export PKG_CONFIG_PATH=$HOME/libs/msgpack-c/dist/lib/pkgconfig/:$PKG_CONFIG_PATH
-- ./compile.sh
+- .travis/compile.sh 

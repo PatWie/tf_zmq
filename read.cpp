@@ -1,3 +1,5 @@
+// Author: Patrick Wieschollek <mail@patwie.com>
+
 #include "includes/zmq.hpp"
 #include "includes/tensor_msg.hpp"
 #include <msgpack.hpp>
@@ -8,7 +10,7 @@
 
 
 void PrintData(std::vector<tensor_msg> &msg){
-    std::cout << "Number of Tensors: "<< msg.size() << std::endl;
+    std::cout << "number of tensors: "<< msg.size() << std::endl;
     
     int c = 0;
     for(auto &tensor : msg){

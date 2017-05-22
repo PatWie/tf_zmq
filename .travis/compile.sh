@@ -1,11 +1,11 @@
-
+mkdir -p build
 # build simple writer
 echo "build simple writer"
 CFLAGS=`pkg-config --cflags libzmq msgpack`
 LFLAGS=`pkg-config --libs libzmq msgpack`
-g++ write.cpp $CFLAGS $LFLAGS -o write -std=c++11
-g++ read_cpp.cpp $CFLAGS $LFLAGS -o read_cpp -std=c++11
-g++ dump.cpp $CFLAGS $LFLAGS -o dump -std=c++11
+g++ write.cpp $CFLAGS $LFLAGS -o build/write -std=c++11
+g++ read.cpp $CFLAGS $LFLAGS -o build/read -std=c++11
+g++ dump.cpp $CFLAGS $LFLAGS -o build/dump -std=c++11
 
 # build zmq_op for tensorflow
 echo "build zmq_op for tensorflow"

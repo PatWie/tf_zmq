@@ -1,3 +1,4 @@
+// Author: Patrick Wieschollek <mail@patwie.com>
 #include "includes/zmq.hpp"
 #include "includes/tensor_msg.hpp"
 #include <msgpack.hpp>
